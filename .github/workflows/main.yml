@@ -19,18 +19,18 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: gradle
 
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v3
-
-    - name: Grant execute permission for gradlew
+    - name: Install Gradle
       run: |
-        gradle wrapper
+        wget -q https://services.gradle.org/distributions/gradle-8.4-bin.zip
+        unzip -q gradle-8.4-bin.zip
+        export PATH=$PATH:$(pwd)/gradle-8.4/bin
+        gradle wrapper --gradle-version 8.4
         chmod +x gradlew
+        echo "PATH=$(pwd)/gradle-8.4/bin:$PATH" >> $GITHUB_ENV
 
     - name: Build with Gradle
-      run: ./gradlew assembleDebug
+      run: ./gradlew assembleDebug --stacktrace
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
