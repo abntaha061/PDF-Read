@@ -20,16 +20,18 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Install Gradle
+    - name: Install Gradle 8.4
       run: |
         wget -q https://services.gradle.org/distributions/gradle-8.4-bin.zip
-        unzip -q gradle-8.4-bin.zip
-        export PATH=$PATH:$(pwd)/gradle-8.4/bin
+        unzip -q gradle-8.4-bin.zip -d $HOME
+        echo "$HOME/gradle-8.4/bin" >> $GITHUB_PATH
+
+    - name: Generate Gradle Wrapper
+      run: |
         gradle wrapper --gradle-version 8.4
         chmod +x gradlew
-        echo "PATH=$(pwd)/gradle-8.4/bin:$PATH" >> $GITHUB_ENV
 
-    - name: Build with Gradle
+    - name: Build APK
       run: ./gradlew assembleDebug --stacktrace
 
     - name: Upload APK
