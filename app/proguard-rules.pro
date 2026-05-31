@@ -1,0 +1,1 @@
+-keep class com.mohammed.pdfreader.data.model.** { *; }
