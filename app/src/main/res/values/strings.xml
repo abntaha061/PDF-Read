@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">قارئ PDF</string>
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_library">المكتبة</string>
+    <string name="nav_bookmarks">الإشارات</string>
+    <string name="nav_settings">الإعدادات</string>
+    <string name="recent_files">الملفات الأخيرة</string>
+    <string name="no_files">لا توجد ملفات بعد\nاضغط + لفتح ملف PDF</string>
+    <string name="open_file">فتح ملف</string>
+    <string name="pages">صفحة</string>
+    <string name="permission_needed">نحتاج إذن الوصول للملفات</string>
+    <string name="open_settings">فتح الإعدادات</string>
+</resources>
